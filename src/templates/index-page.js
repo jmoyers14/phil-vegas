@@ -9,7 +9,15 @@ import BlogRoll from '../components/BlogRoll';
 import FullWidthImage from '../components/FullWidthImage';
 
 // eslint-disable-next-line
-export const IndexPageTemplate = ({ image, mainpitch }) => {
+export const IndexPageTemplate = ({
+    image,
+    title,
+    heading,
+    subheading,
+    mainpitch,
+    description,
+    intro,
+}) => {
     const heroImage = getImage(image) || image;
 
     return (

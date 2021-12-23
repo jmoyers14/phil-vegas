@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import logo from '../img/logo.svg';
 
 export default function FullWidthImage(props) {
-    const { height = 400, img, imgPosition = 'top left' } = props;
+    const { height = 400, img, imgPosition = 'center' } = props;
 
     return (
         <React.Fragment>
@@ -48,6 +49,17 @@ export default function FullWidthImage(props) {
                         formats={['auto', 'webp', 'avif']}
                     />
                 )}
+                <div
+                    style={{
+                        // By using the same grid area for both, they are stacked on top of each other
+                        gridArea: '1/1',
+                        position: 'relative',
+                        // This centers the other elements inside the hero component
+                        placeItems: 'center',
+                        display: 'grid',
+                    }}>
+                    <img src={logo} alt="Phil" style={{ width: '20rem' }} />
+                </div>
             </div>
         </React.Fragment>
     );
