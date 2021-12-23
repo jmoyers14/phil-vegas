@@ -26,9 +26,11 @@ export const IndexPageTemplate = ({
     return (
         <div>
             <FullWidthImage img={heroImage} />
-            <section className="section section--gradient">
+            <section
+                className="section section--gradient"
+                style={{ padding: '0rem' }}>
                 <div className="container">
-                    <div className="section">
+                    <div className="section" style={{ padding: '1.5rem' }}>
                         <div className="columns">
                             <div className="column is-10 is-offset-1">
                                 <div className="content">
@@ -60,16 +62,18 @@ export const IndexPageTemplate = ({
                                         <div
                                             className="tile"
                                             style={{ marginTop: '20px' }}>
-                                            <h4 className="subtitle">
+                                            <div className="subtitle">
                                                 {mainpitch.description}
-                                            </h4>
+                                            </div>
                                         </div>
                                         <div className="tile">
-                                            <h4 className="subtitle">
+                                            <div
+                                                className="subtitle"
+                                                style={{ marginTop: '20px' }}>
                                                 {
                                                     'Vegas Golden Knights season ticket holder and proud Vegas resident.'
                                                 }
-                                            </h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
