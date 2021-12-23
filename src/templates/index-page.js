@@ -13,12 +13,8 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 export const IndexPageTemplate = ({
     image,
     profileImage,
-    title,
-    heading,
-    subheading,
+    email,
     mainpitch,
-    description,
-    intro,
 }) => {
     const heroImage = getImage(image) || image;
     const profile = getImage(profileImage) || profileImage;
@@ -70,9 +66,7 @@ export const IndexPageTemplate = ({
                                             <div
                                                 className="subtitle"
                                                 style={{ marginTop: '20px' }}>
-                                                {
-                                                    'Vegas Golden Knights season ticket holder and proud Vegas resident.'
-                                                }
+                                                {mainpitch.subDescription}
                                             </div>
                                         </div>
                                         <div
@@ -81,9 +75,9 @@ export const IndexPageTemplate = ({
                                                 marginTop: '20px',
                                             }}>
                                             <a
-                                                href="mailto: mitb@phil.vegas"
+                                                href={`mailto: ${email}`}
                                                 style={{ color: '#B6995A' }}>
-                                                mitb@phil.vegas
+                                                {email}
                                             </a>
                                         </div>
                                     </div>
@@ -100,14 +94,8 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     profileImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    title: PropTypes.string,
-    heading: PropTypes.string,
-    subheading: PropTypes.string,
+    email: PropTypes.string,
     mainpitch: PropTypes.object,
-    description: PropTypes.string,
-    intro: PropTypes.shape({
-        blurbs: PropTypes.array,
-    }),
 };
 
 const IndexPage = ({ data }) => {
@@ -118,12 +106,8 @@ const IndexPage = ({ data }) => {
             <IndexPageTemplate
                 image={frontmatter.image}
                 profileImage={frontmatter.profileImage}
-                title={frontmatter.title}
-                heading={frontmatter.heading}
-                subheading={frontmatter.subheading}
+                email={frontmatter.email}
                 mainpitch={frontmatter.mainpitch}
-                description={frontmatter.description}
-                intro={frontmatter.intro}
             />
         </Layout>
     );
@@ -143,7 +127,6 @@ export const pageQuery = graphql`
     query IndexPageTemplate {
         markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
             frontmatter {
-                title
                 image {
                     childImageSharp {
                         gatsbyImageData(quality: 100, layout: FULL_WIDTH)
@@ -154,11 +137,11 @@ export const pageQuery = graphql`
                         gatsbyImageData(quality: 100, layout: FULL_WIDTH)
                     }
                 }
-                heading
-                subheading
+                email
                 mainpitch {
                     title
                     description
+                    subDescription
                 }
             }
         }
