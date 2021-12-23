@@ -9,15 +9,7 @@ import BlogRoll from '../components/BlogRoll';
 import FullWidthImage from '../components/FullWidthImage';
 
 // eslint-disable-next-line
-export const IndexPageTemplate = ({
-    image,
-    title,
-    heading,
-    subheading,
-    mainpitch,
-    description,
-    intro,
-}) => {
+export const IndexPageTemplate = ({ image, mainpitch }) => {
     const heroImage = getImage(image) || image;
 
     return (
@@ -112,23 +104,6 @@ export const pageQuery = graphql`
                 subheading
                 mainpitch {
                     title
-                    description
-                }
-                description
-                intro {
-                    blurbs {
-                        image {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    width: 240
-                                    quality: 64
-                                    layout: CONSTRAINED
-                                )
-                            }
-                        }
-                        text
-                    }
-                    heading
                     description
                 }
             }
