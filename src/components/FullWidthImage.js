@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import logo from '../img/logo.svg';
+import logo from '../img/logo.png';
 
 export default function FullWidthImage(props) {
     const { height = 400, img, imgPosition = 'center' } = props;
@@ -58,7 +58,11 @@ export default function FullWidthImage(props) {
                         placeItems: 'center',
                         display: 'grid',
                     }}>
-                    <img src={logo} alt="Phil" style={{ width: '20rem' }} />
+                    <img
+                        src={logo}
+                        alt="Phil"
+                        style={{ width: '20rem', opacity: 0.95 }}
+                    />
                 </div>
             </div>
         </React.Fragment>
