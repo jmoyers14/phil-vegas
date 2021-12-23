@@ -75,6 +75,17 @@ export const IndexPageTemplate = ({
                                                 }
                                             </div>
                                         </div>
+                                        <div
+                                            style={{
+                                                textAlign: 'center',
+                                                marginTop: '20px',
+                                            }}>
+                                            <a
+                                                href="mailto: mitb@phil.vegas"
+                                                style={{ color: '#B6995A' }}>
+                                                mitb@phil.vegas
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
